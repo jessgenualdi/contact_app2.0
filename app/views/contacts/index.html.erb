@@ -2,8 +2,11 @@
 
 
 <% @contacts.each do |contact| %>
-  <h2><%= contact.first_name %> <%= contact.last_name   %></h2>
+  <h2> <%= contact.full_name   %></h2>
+  <p><%= contact.bio%></p>
   <p><%= contact.email %></p>
-  <p><%= contact.phone_number %></p>
+  <p><%= contact.japanese_prefix %></p>
+  <p><%= contact.pretty_created_at %></p>
+
   <a href="/contacts/<%= contact.id%>">Show Contact</a>
 <% end %>

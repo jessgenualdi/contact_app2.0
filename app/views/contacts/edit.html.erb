@@ -1,5 +1,5 @@
 <h3>Edit contact</h3>
-<%= form_tag "/contacts", method: :patch do %>
+<%= form_tag "/contacts/#{@contact.id}", method: :patch do %>
 <div>
 <%= label_tag :first_name, "Enter your first name: " %>
 <%= text_field_tag :first_name, @contact.first_name %>

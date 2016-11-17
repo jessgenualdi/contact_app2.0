@@ -2,3 +2,7 @@
 <p><%= @contact.email %></p>
 <p><%= @contact.phone_number %></p>
 <a href="/contacts/<%= @contact.id %>/edit">edit contact</a>
+<%= form_tag "/contacts/#{@contact.id}", method: :delete do %>
+<%= submit_tag "Delete Contact" %>
+<% end %>
+

@@ -17,8 +17,10 @@ class ContactsController < ApplicationController
 
   def create
     @contact = Contact.new(first_name: params[:first_name], 
+      middle_name: params[:middle_name], 
       last_name: params[:last_name], 
       email: params[:email], 
+      bio: params[:bio], 
       phone_number: params[:phone_number])
     @contact.save
   end
@@ -34,8 +36,20 @@ class ContactsController < ApplicationController
   end
 
   def update
+    @contact = Contact.find_by(id: params[:id])
+    @contact.update(
+      first_name: params[:first_name], 
+      last_name: params[:last_name],
+      middle_name: params[:middle_name], 
+      bio: params[:bio], 
+      email: params[:email], 
+      phone_number: params[:phone_number]
+    )
   end
 
   def destroy
+    @contact = Contact.find_by(id: params[:id])
+    @contact.delete
+    render 'destroy.html.erb'
   end
 end
